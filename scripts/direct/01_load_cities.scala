@@ -34,14 +34,14 @@ val db = pg
 
 db withSession {
   println("\nCities with more than 5 million people:")
-  val q1 = Queryable[City]
-  val q2 = q1.filter( _.population > 5000000 ).map( _ .name )
+  val cities = Queryable[City]
+  val q1 = cities.filter( _.population > 5000000 ).map( _ .name )
 
-  val result = backend.result(q2, session)
+  val bigCities = backend.result(q1, session)
 
-  println("\nresult is of type: %s".format(result.getClass.getName))
+  println("\nresult is of type: %s".format(bigCities.getClass.getName))
   println("\nCities:")
-  result foreach {
+  bigCities foreach {
       println(_)
   }
 }
