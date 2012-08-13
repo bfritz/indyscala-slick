@@ -10,7 +10,7 @@ resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies ++= List(
   "com.typesafe" % "slick_2.10.0-M6" % "0.11.0",
-  "org.slf4j" % "slf4j-simple" % "1.6.4",
+  "ch.qos.logback" % "logback-classic" % "1.0.6",
   "com.h2database" % "h2" % "1.3.166",
   "postgresql" % "postgresql" % "9.1-901.jdbc4",
   "mysql" % "mysql-connector-java" % "5.1.21"
