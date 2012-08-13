@@ -44,4 +44,14 @@ db withSession {
   bigCities foreach {
       println(_)
   }
+
+  // won't work:
+  //   scala.slick.SlickException: Operator not supported:
+  //     x$4.name.type.startsWith(java.lang.String("Z"))
+  // val q2 = cities.filter( _.name startsWith "Z" ).map( _ .name )
+
+  val q2 = cities.filter( _.name == "Carmel" ).map( c => (c.id, c.name) )
+  val carmel = backend.result(q2, session)
+
+  println("\nMatches for 'Carmel':\n" + carmel)
 }
