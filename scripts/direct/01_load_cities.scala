@@ -1,4 +1,6 @@
+// import scala.slick.driver.MySQLDriver
 // import scala.slick.driver.MySQLDriver.simple.Database
+import scala.slick.driver.PostgresDriver
 import scala.slick.driver.PostgresDriver.simple.Database
 import Database.{threadLocalSession => session}
 import scala.slick.direct._
@@ -9,8 +11,8 @@ case class City(
   id : Int,
   @column(name="name")
   name : String,
-  @column(name="country")
-  country : String,
+  @column(name="countrycode")
+  countrycode : String,
   @column(name="district")
   district : String,
   @column(name="population")
