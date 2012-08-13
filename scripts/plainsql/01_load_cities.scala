@@ -16,6 +16,14 @@ val mysql = Database.forURL(
 
 val db = pg
 
+/*
+  From scaladoc...
+  def withSession[T](f: ⇒ T): T
+  Run the supplied thunk with a new session and automatically close the
+  session at the end. The session is stored in a thread-local variable
+  which can be accessed with the implicit function in Database.Implicit.
+*/
+
 db withSession {
   implicit val cityMapper = GetResult(r =>
     City(r.nextInt, r.nextString, r.nextString, r.nextString, r.nextInt))
