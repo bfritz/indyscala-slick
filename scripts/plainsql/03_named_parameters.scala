@@ -24,6 +24,10 @@ import Q.interpolation
   def sqlu[P](param: P)(implicit pconv: SetParameter[P]): StaticQuery0[Int]
 */
 
+implicit val cityMapper = GetResult(r =>
+  City(r.nextInt, r.nextString, r.nextString, r.nextString,
+  r.nextInt))
+
 def citiesByDistrict(district: String) =
   sql"select * from city where district = $district".as[City]
 
